@@ -41,7 +41,7 @@ const isProduction = 'production'
 
 const config = {
     entry: {
-        index: './src/index.js',
+        index: './src/index.jsx',
     },
     output: {
         filename: '[name].bundle.js',
@@ -50,7 +50,7 @@ const config = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.jsx?$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
             },

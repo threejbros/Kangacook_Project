@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { createRoot } from 'react-dom/client';
-import Home from "./Home.js";
+import Home from "./Home.jsx";
 
 
 export default class App extends Component {
@@ -9,11 +9,12 @@ export default class App extends Component {
     }
 
     render() {
-        return (
-            <div>
-                <Home />
-            </div>
-        );
+        return <Home />;
+        // return (
+        //     <div>
+        //         <Home />
+        //     </div>
+        // );
     }
 }
 
