@@ -28,7 +28,7 @@ export default class Home extends Component {
                 <div>
                     <NavBar />  
                     <Routes>
-                        <Route exact path='/' element={<p>This is the home page</p>} />
+                        <Route exact path='/' element={<h1 className="home">Welcome To Kangacook Asian Recipes</h1>} />
                         <Route path='/Entrees' element={<EntreeRecipes />} />
                         <Route path='/Dessert' element={<DessertRecipes />} />
                     </Routes>

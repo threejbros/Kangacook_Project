@@ -14,8 +14,6 @@ class PlatesView(generics.ListAPIView):
     serializer_class = PlateSerializer
 
 class GetAllEntreesView(APIView):
-    # serializer_class = PlateSerializer 
-
     def get(self, request, format=None):
         allEntrees = Plate.objects.filter(type="entree")
         if allEntrees.exists():
@@ -23,6 +21,15 @@ class GetAllEntreesView(APIView):
             return Response(data, status=status.HTTP_200_OK)
         else:
             return Response({'Error': 'No Entrees'}, status=status.HTTP_404_NOT_FOUND)
+        
+class GetAllDessertsView(APIView):
+    def get(self, request, format=None):
+        allDesserts= Plate.objects.filter(type="dessert")
+        if allDesserts.exists():
+            data = PlateSerializer(allDesserts, many=True).data
+            return Response(data, status=status.HTTP_200_OK)
+        else:
+            return Response({'Error': 'No Desserts'}, status=status.HTTP_404_NOT_FOUND)
 
 # Create entree view with APIView as the base class
 class CreatePlateView(APIView): 
@@ -47,18 +54,9 @@ class CreatePlateView(APIView):
 
             return Response(PlateSerializer(entree).data, status=status.HTTP_201_CREATED)
         else:
-            print('Serializer errors:', serializer.errors);  # Log the serializer errors
+            # print('Serializer errors:', serializer.errors);  # Log the serializer errors
             return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)
 
-            # name = serializer.validated_data['name'] 
-            # desc = serializer.data.desc
-            # ingredients = serializer.data.ingredients
-            # time = serializer.data.time
-            # instructions = serializer.data.instructions 
-            # img = serializer.data.img
-            # plateType = serializer.data.type
-           
-            # entree = Entree(name=name, desc=desc, ingredients=ingredients)
 
 
 

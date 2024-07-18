@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import EntreeAdd from './EntreeAdd.jsx'
+import EntreeListContent from './EntreeListContent.jsx'
+
 
 export default class EntreeRecipes extends Component {
     constructor(props) {
         super(props);
-        this.state = { plates: [] };
+        this.state = { entrees: [] };
+
+        this.createEntree = this.createEntree.bind(this);
+        this.loadEntrees = this.loadEntrees.bind(this);
     }
 
     componentDidMount() {
@@ -15,9 +20,10 @@ export default class EntreeRecipes extends Component {
         fetch('/api/get-entrees')
         .then(response => response.json())
         .then(data => {
-            this.setState({ plates: data });
+            this.setState({ entrees: data });
         })
         .catch(err => console.log(err));
+
     }
 
     createEntree(entree) {
@@ -36,9 +42,8 @@ export default class EntreeRecipes extends Component {
             return response.json();
         })
         .then(newEntree => {
-            // const newPlates = this.state.plates.concat(newEntree);
-            // this.setState({plates: newPlates});
-            // console.log('Total Number of Plates:', newPlates.length);
+            const newEntreeList = this.state.entrees.concat(newEntree);
+            this.setState({entrees: newEntreeList});
         })
         .catch(err => console.log(err))
     }
@@ -47,7 +52,9 @@ export default class EntreeRecipes extends Component {
         return (
             <React.Fragment>
                 <EntreeAdd createEntree={this.createEntree}/>
-                {/* <EntreeCards /> */}
+                <div className="plateCard">
+                    <EntreeListContent entrees={this.state.entrees}/>
+                </div>
             </React.Fragment>
         );
     }

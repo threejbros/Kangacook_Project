@@ -1,7 +1,7 @@
 import React, { Component } from "react";;
 import { Button, Container, Row, Col, Modal } from 'react-bootstrap'
 
-export default class EntreeAdd extends Component {
+export default class DessertAdd extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -25,17 +25,17 @@ export default class EntreeAdd extends Component {
     }
 
     handleSubmit() {
-        const form = document.forms.entreeAdd;
-        const entree = {
+        const form = document.forms.dessertAdd;
+        const dessert = {
             name: form.name.value,
             desc: form.desc.value,
             ingredients: form.ingredients.value,
             time: form.time.value,
             instructions: form.instructions.value,
             img: form.img.value,
-            type: "entree"
+            type: "dessert"
         };
-        this.props.createEntree(entree);
+        this.props.createDessert(dessert);
         form.name.value = '';
         form.desc.value = '';
         form.ingredients.value = '';
@@ -52,15 +52,15 @@ export default class EntreeAdd extends Component {
             <>
                 <div className="addPlate">
                     <Button variant='primary' size="sm" onClick={this.handleShowModal}>
-                        Add New Entree
+                        Add New Dessert
                     </Button>
                     <Modal show={this.state.modalVisible} onHide={this.handleHideModal}>
                         <Modal.Header closeButton>
-                            <Modal.Title>Add New Entree:</Modal.Title>
+                            <Modal.Title>Add New Dessert:</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
                             <Container fluid>
-                                <form name="entreeAdd">
+                                <form name="dessertAdd">
                                     <Row>
                                         <Col md={12}><b>Name: </b></Col>
                                         <Col md="auto"><input type="text" name="name" required/></Col>

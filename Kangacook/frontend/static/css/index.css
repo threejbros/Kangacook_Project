@@ -2,7 +2,6 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    /* color: white; */
 }
 
 #main {
@@ -20,7 +19,23 @@ html, body {
 
 .navbar {padding: 15px 20px;}
 
-.addEntree {
+.addPlate {
     padding: 20px 20px 0 0; 
     text-align: right;
+}
+
+.plateCard {
+    padding: 20px;
+}
+
+.plateCardList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.home {
+    text-align: center;
+    background-color: antiquewhite;
 }
