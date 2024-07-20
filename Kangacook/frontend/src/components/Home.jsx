@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import EntreeRecipes from "./EntreeRecipes.jsx";
 import DessertRecipes from "./DessertRecipes.jsx" ;
-import { BrowserRouter as Router, Routes, Route, Link, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navbar, Nav } from 'react-bootstrap'
 
 function NavBar() {

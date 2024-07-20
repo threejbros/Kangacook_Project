@@ -12,5 +12,3 @@ class CreatePlateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Plate
         fields = ('name', 'desc', 'ingredients', 'time', 'instructions', 'img', 'type')
-
-# class CreateDessertSerializer(serializers.ModelSerializer):
